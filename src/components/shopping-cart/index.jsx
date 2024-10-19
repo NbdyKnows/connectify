@@ -3,8 +3,7 @@ import { TrashIcon } from "../icons";
 import EmptyShoppingCart from "./empty-shopping-cart";
 
 export default function ShoppingCart() {
-  const { products, removeProduct, totalAmount, clearShoppingCart } =
-    useShoppingCart();
+  const { products, removeProduct, totalAmount, clearShoppingCart } = useShoppingCart();
 
   if (products.length === 0) return <EmptyShoppingCart />;
 
