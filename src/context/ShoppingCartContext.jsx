@@ -25,10 +25,10 @@ export const ShoppingCartProvider = ({ children }) => {
       const existingProduct = prevProducts.find((p) => p.id === product.id);
       if (existingProduct) {
         return prevProducts.map((p) =>
-          p.id === product.id ? { ...p, quantity: p.quantity + 1 } : p
+          p.id === product.id ? { ...p, quantity: p.quantity + product.quantity } : p
         );
       } else {
-        return [...prevProducts, { ...product, quantity: 1 }];
+        return [...prevProducts, { ...product, quantity: product.quantity }];
       }
     });
   }, []);

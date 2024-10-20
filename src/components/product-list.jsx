@@ -15,7 +15,7 @@ export default function ProductList() {
 
   const handleAddToCart = (product) => {
     const quantity = (quantities[product.id] || 0) + 1;
-    handleQuantityChange(product.id, 1);
+    handleQuantityChange(product.id, 1); // Incrementar la cantidad en el estado
     addProduct({ ...product, quantity });
   };
 
@@ -24,12 +24,12 @@ export default function ProductList() {
       {dataProducts.map((product) => (
         <div
           key={product.id}
-          className="rounded-lg border bg-gray-400/10 flex flex-col h-full"
+          className="rounded-lg border bg-gray-400/10 flex flex-col h-full hover:scale-105 transition-all duration-300 shadow-lg"
         >
           <img
             src={product.image}
             alt={product.name}
-            className="w-full h-48 object-contain bg-white mx-auto"
+            className="w-full h-48 object-cover bg-white mx-auto"
           />
           <div className="flex flex-col flex-grow gap-y-4 px-4 py-6">
             <h1 className="font-medium">{product.name}</h1>

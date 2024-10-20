@@ -1,4 +1,5 @@
 import Header from '../components/header';
+import Footer from '../components/Footer';
 
 export default function Nosotros() {
     return (
@@ -8,6 +9,7 @@ export default function Nosotros() {
             <h1 className="text-3xl font-bold">Nosotros</h1>
             <p>Información sobre nosotros.</p>
         </div>
+        <Footer />
         </div>
     );
 }

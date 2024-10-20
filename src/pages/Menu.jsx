@@ -1,5 +1,6 @@
 import Header from '../components/header';
 import ProductList from '../components/product-list';
+import Footer from '../components/Footer';
 
 export default function Menu() {
     return (
@@ -9,6 +10,7 @@ export default function Menu() {
             <h1 className="text-3xl font-bold">Menu</h1>
             <ProductList />
         </div>
+        <Footer />
         </div>
     );
 }

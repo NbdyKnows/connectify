@@ -1,9 +1,11 @@
 import { useShoppingCart } from "../../hooks";
 import { TrashIcon } from "../icons";
 import EmptyShoppingCart from "./empty-shopping-cart";
+import { useNavigate } from "react-router-dom";
 
 export default function ShoppingCart() {
   const { products, removeProduct, totalAmount, clearShoppingCart } = useShoppingCart();
+  const navigate = useNavigate();
 
   if (products.length === 0) return <EmptyShoppingCart />;
 
@@ -16,7 +18,7 @@ export default function ShoppingCart() {
             <h5 className="w-32 text-ellipsis truncate font-medium">
               {product.name}
             </h5>
-            <span className="ml-auto">$ {product.price}</span>
+            <span className="ml-auto">S/ {product.price * product.quantity}</span>
             <div>
               <button
                 className="bg-red-600 hover:bg-red-800 text-white hover:text-slate-200 rounded-full p-2"
@@ -32,12 +34,20 @@ export default function ShoppingCart() {
         <span className="font-medium text-xl">Total:</span>
         <span className="font-medium text-xl">$ {totalAmount}</span>
       </div>
-      <button
-        className="w-full bg-gray-900 text-white px-4 py-2 mt-2 rounded-lg hover:bg-gray-800"
-        onClick={clearShoppingCart}
-      >
-        Vaciar carrito
-      </button>
+      <div className="flex gap-2 mt-2">
+        <button
+          className="w-full bg-gray-900 text-white px-4 py-2 rounded-lg hover:bg-gray-800"
+          onClick={clearShoppingCart}
+        >
+          Vaciar carrito
+        </button>
+        <button
+          className="w-full bg-indigo-600 hover:bg-indigo-800 text-white font-medium rounded-lg px-4 py-2"
+          onClick={() => navigate('/pagar')}
+        >
+          Pagar
+        </button>
+      </div>
     </div>
   );
 }

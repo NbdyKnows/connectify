@@ -1,13 +1,13 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Inicio from './pages/Inicio';
-import Nosotros from './pages/Nosotros';
+import Nosotros from './pages/nosotros';
 import Menu from './pages/Menu';
 import Pagar from './pages/Pagar';
 import { ShoppingCartProvider } from './context/ShoppingCartContext';
 
 function App() {
   return (
-    <ShoppingCartProvider>
+    <ShoppingCartProvider clas>
       <Router>
         <Routes>
           <Route path="/" element={<Inicio />} />
