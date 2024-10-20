@@ -12,7 +12,7 @@ export default function Header() {
     <header className="w-full bg-gradient-to-r from-[#D4991A] to-[#a4794d] sticky top-0 z-50">
     <div className="max-w-6xl mx-auto px-4 py-3 flex gap-x-12 justify-between">
       <h1 className="font-semibold text-4xl text-white">
-        <Link to="/">Safary Gourmet</Link>
+        <Link to="/">Connectify</Link>
       </h1>
       <div className="flex items-center gap-x-8">
         <nav className="flex gap-x-4 text-white">
