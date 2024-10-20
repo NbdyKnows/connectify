@@ -6,7 +6,8 @@ import ShoppingCart from "./shopping-cart";
 
 export default function Header() {
   const [showCart, setShowCart] = useState(false);
-  const { products } = useShoppingCart();
+  const { totalItems } = useShoppingCart();
+
   return (
     <header className="w-full bg-gradient-to-r from-[#D4991A] to-[#a4794d] sticky top-0 z-50">
     <div className="max-w-6xl mx-auto px-4 py-3 flex gap-x-12 justify-between">
@@ -38,7 +39,7 @@ export default function Header() {
           >
             <ShoppingCartIcon />
             <div className="bg-white p-1 text-xs text-gray-900 w-6 h-6 rounded-[50%]">
-              <span>{products.length}</span>
+              <span>{totalItems}</span>
             </div>
           </button>
           {showCart && (

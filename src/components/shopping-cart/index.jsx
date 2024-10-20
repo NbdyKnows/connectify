@@ -32,7 +32,7 @@ export default function ShoppingCart() {
       </div>
       <div className="flex justify-between pt-2 border-t">
         <span className="font-medium text-xl">Total:</span>
-        <span className="font-medium text-xl">$ {totalAmount}</span>
+        <span className="font-medium text-xl">S/ {totalAmount}</span>
       </div>
       <div className="flex gap-2 mt-2">
         <button

@@ -15,7 +15,7 @@ export default function ProductList() {
 
   const handleAddToCart = (product) => {
     const quantity = (quantities[product.id] || 0) + 1;
-    handleQuantityChange(product.id, 1); // Incrementar la cantidad en el estado
+    handleQuantityChange(product.id, 1);
     addProduct({ ...product, quantity });
   };
 

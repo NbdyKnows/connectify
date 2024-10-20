@@ -3,6 +3,7 @@ import { createContext, useCallback, useMemo, useState, useEffect, useRef } from
 export const ShoppingCartContext = createContext({
   products: [],
   totalAmount: 0,
+  totalItems: 0,
   addProduct: () => {},
   removeProduct: () => {},
   clearShoppingCart: () => {},
@@ -18,6 +19,10 @@ export const ShoppingCartProvider = ({ children }) => {
 
   const totalAmount = useMemo(() => {
     return products.reduce((total, product) => total + product.price * product.quantity, 0);
+  }, [products]);
+
+  const totalItems = useMemo(() => {
+    return products.reduce((total, product) => total + product.quantity, 0);
   }, [products]);
 
   const addProduct = useCallback((product) => {
@@ -76,6 +81,7 @@ export const ShoppingCartProvider = ({ children }) => {
       value={{
         products,
         totalAmount,
+        totalItems,
         addProduct,
         removeProduct,
         clearShoppingCart,
