@@ -1,6 +1,6 @@
 import Header from '../components/header';
 import ProductList from '../components/product-list';
-import Footer from '../components/Footer';
+import Footer from '../components/footer';
 
 export default function Menu() {
     return (
