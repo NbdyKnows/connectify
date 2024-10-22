@@ -1,6 +1,6 @@
-## Cómo instalar e inicializar el proyecto
+# Cómo instalar e inicializar el proyecto
 
-# Requisitos
+## Requisitos
 
 - Node.js (versión 14 o superior)
 - npm o yarn
