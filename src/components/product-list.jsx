@@ -5,6 +5,7 @@ import { useState } from "react";
 export default function ProductList() {
   const { addProduct } = useShoppingCart();
   const [quantities, setQuantities] = useState({});
+  const [cartQuantities, setCartQuantities] = useState({});
 
   const handleQuantityChange = (productId, amount) => {
     setQuantities((prevQuantities) => ({
@@ -14,9 +15,18 @@ export default function ProductList() {
   };
 
   const handleAddToCart = (product) => {
-    const quantity = (quantities[product.id] || 0) + 1;
-    handleQuantityChange(product.id, 1);
-    addProduct({ ...product, quantity });
+    const quantity = quantities[product.id] || 0;
+    if (quantity > 0) {
+      addProduct({ ...product, quantity });
+      setCartQuantities((prevCartQuantities) => ({
+        ...prevCartQuantities,
+        [product.id]: (prevCartQuantities[product.id] || 0) + quantity,
+      }));
+      setQuantities((prevQuantities) => ({
+        ...prevQuantities,
+        [product.id]: 0,
+      }));
+    }
   };
 
   return (
@@ -56,6 +66,7 @@ export default function ProductList() {
             <button
               className="bg-indigo-600 hover:bg-indigo-800 text-slate-200 font-medium border rounded-lg px-4 py-2 mt-2 transition-all duration-300 hover:scale-110"
               onClick={() => handleAddToCart(product)}
+              disabled={(quantities[product.id] || 0) === 0}
             >
               Agregar al carrito
             </button>
