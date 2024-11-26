@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { db } from '../config/fbConfig'; // Asegúrate de ajustar la ruta según tu estructura de archivos
-import { collection, addDoc } from 'firebase/firestore';
+import { db } from '../config/fbConfig';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { useShoppingCart } from '../hooks';
 import Header from '../components/header';
 import { TrashIcon } from '../components/icons';
@@ -23,7 +23,8 @@ const Pagar = () => {
         const order = {
             orderId,
             items: orderDetails,
-            totalAmount
+            totalAmount,
+            createdAt: serverTimestamp()
         };
 
         try {
